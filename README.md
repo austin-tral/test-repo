@@ -1,3 +1,3 @@
-# test-repo
+# Py Calculator
 
-Hi! I'm a Git repository. Add some code to me!
+This repository contains a simple implementation of a calculator in python!
