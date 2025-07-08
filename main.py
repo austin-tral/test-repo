@@ -1,4 +1,4 @@
-from calculator import Calculator, is_even
+from calculator import Calculator, is_even, AdvancedCalculator
 
 def main():
     """
@@ -48,3 +48,28 @@ if __name__ == "__main__":
     only when this script is executed directly (not when imported as a module).
     """
     main()
+
+    print("\n--- Using the AdvancedCalculator Class ---")
+    adv_calc = AdvancedCalculator()
+
+    # Demonstrate the power method
+    power_result = adv_calc.power(3, 4)
+    print(f"3 to the power of 4 = {power_result}")
+
+    power_result_neg_base = adv_calc.power(-2, 3)
+    print(f"-2 to the power of 3 = {power_result_neg_base}")
+
+    # Demonstrate the sqrt method
+    sqrt_result = adv_calc.sqrt(16)
+    print(f"Square root of 16 = {sqrt_result}")
+
+    sqrt_result_float = adv_calc.sqrt(2)
+    print(f"Square root of 2 = {sqrt_result_float:.4f}") # Formatting for readability
+
+    # Demonstrate handling the sqrt of a negative number
+    print("\n--- Testing Square Root of a Negative Number ---")
+    try:
+        print("Attempting to calculate square root of -9...")
+        adv_calc.sqrt(-9)
+    except ValueError as e:
+        print(f"Successfully caught expected error: {e}")

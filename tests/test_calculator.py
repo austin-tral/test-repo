@@ -1,6 +1,6 @@
 
 import unittest
-from calculator import Calculator, is_even
+from calculator import Calculator, is_even, AdvancedCalculator
 
 class TestCalculator(unittest.TestCase):
     """
@@ -93,3 +93,44 @@ if __name__ == '__main__':
     This allows the test suite to be executed directly from the command line.
     """
     unittest.main()
+
+class TestAdvancedCalculator(unittest.TestCase):
+    """
+    Test cases for the AdvancedCalculator class.
+    This suite tests the new methods: power and sqrt.
+    """
+
+    def setUp(self):
+        """
+        Set up a new AdvancedCalculator instance before each test.
+        """
+        self.adv_calc = AdvancedCalculator()
+
+    def test_power(self):
+        """
+        Test the power method.
+        - Positive base and exponent
+        - Base to the power of zero
+        - Zero to any power
+        - Negative base with even/odd exponent
+        """
+        self.assertEqual(self.adv_calc.power(2, 3), 8)
+        self.assertEqual(self.adv_calc.power(5, 0), 1)
+        self.assertEqual(self.adv_calc.power(0, 5), 0)
+        self.assertEqual(self.adv_calc.power(-2, 2), 4)
+        self.assertEqual(self.adv_calc.power(-2, 3), -8)
+        self.assertEqual(self.adv_calc.power(4, 0.5), 2) # Square root via power
+
+    def test_sqrt(self):
+        """
+        Test the sqrt method.
+        - Square root of a perfect square
+        - Square root of a non-perfect square
+        - Square root of zero
+        - Attempting square root of a negative number (should raise ValueError)
+        """
+        self.assertEqual(self.adv_calc.sqrt(9), 3)
+        self.assertAlmostEqual(self.adv_calc.sqrt(2), 1.41421356, places=7)
+        self.assertEqual(self.adv_calc.sqrt(0), 0)
+        with self.assertRaises(ValueError):
+            self.adv_calc.sqrt(-4)

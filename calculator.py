@@ -32,3 +32,21 @@ def is_even(number):
     Returns True if the number is even, False otherwise.
     """
     return number % 2 == 0
+
+class AdvancedCalculator(Calculator):
+    """
+    An advanced calculator that extends the basic Calculator with more complex operations.
+    """
+
+    def power(self, base, exponent):
+        """Returns the base raised to the power of the exponent."""
+        return base ** exponent
+
+    def sqrt(self, number):
+        """
+        Returns the square root of a number.
+        Raises a ValueError if the number is negative.
+        """
+        if number < 0:
+            raise ValueError("Cannot calculate the square root of a negative number.")
+        return number ** 0.5
